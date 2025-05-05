@@ -77,44 +77,44 @@
  function userInfoValidation()
  {
     console.log("Checking user info");
-
+    //specifies id for first name entry label
     let firstNameField = document.getElementById("firstNameField");
-
+    //same for last name
     let lastNameFieldField = document.getElementById("lastNameField");
-
+    //designates an id for the zip code element
     let zipField =document.getElementById("zipField");
-
+    //id for all elements and conditions contained within results
     let results = document.getElementById("userInfoResults");
 
     results.innerHTML = "";
-
+    //defines that the first name value will be data entered into its designated field
     let firstNameValue = firstNameField.value;
-
+    //same for last name
     let lastNameValue = lastNameField.value;
-
+    //same designation as first and last name for zip field and value
     let zipValue = zipField.value;
 
-    //concatenation
+    //concatenation of first and last name values
     let firstLastName = firstNameValue + " " + lastNameValue;
 
     console.log(firstLastName);
-
+    //condition set limit for first and last name at 20 characters
     if (firstLastName.length > 20)
-    {
+    {   //warning message for the user if the character count is not correct
         results.innerHTML = "Slow down buddy! Too many characters there! Keep it under 20!"
-
+        //stops iterations when if condition is met
         return;
     }
-    
+    //regular expression sets zip fields' number of digits at 5
     let zipRegEx = /^\d{5}$/
 
     if (!zipRegEx.test(zipValue))
-    {
-         results.innerHTML = "Moving too fast again! Wrongly formatted there pal! Keep it to 5, no more no less!"
+    {   //warning to user if zip field condition is not correct
+        results.innerHTML = "Moving too fast again! Wrongly formatted there pal! Keep it to 5, no more no less!"
 
          return;
     }
-
+    //success message for the user when the correct info is entered without violating character or digit rules
     results.innerHTML = "You have reach the corrrect number!";
     console.log("input validated");
  }
